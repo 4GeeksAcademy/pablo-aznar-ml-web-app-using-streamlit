@@ -6,19 +6,19 @@ Para el desarrollo de una aplicación web usando **Flask**, hemos utilizado un m
 
 ## 🗂️ Estructura del Repositorio
 
-src/
-├── static/
-│ └── alarm.wav # Sonido que se reproduce si se detecta spam
-├── templates/
-│ └── index.html # Interfaz web personalizada de la aplicación
-├── 12-opt-svm-model.pkl # Modelo SVM entrenado 
-├── 12-vectorizer # Vectorizador TF-IDF necesario para transformar el texto
-├── requirements.txt # Dependencias del proyecto
-├── utils1.py # Funciones de preprocesamiento y lematización
-└── app.py # Lógica principal de la aplicación Flask
-
-
----
+```plaintext
+main/
+├── src/
+│   ├── static/
+│   │   └── alarm.wav          # Sonido que se reproduce si se detecta spam
+│   ├── templates/
+│   │   └── index.html         # Interfaz web personalizada de la aplicación
+│   ├── 12-opt-svm-model.pkl   # Modelo SVM entrenado 
+│   ├── 12-vectorizer          # Vectorizador TF-IDF necesario para transformar el texto
+│   ├── requirements.txt       # Librerias necesarias 
+│   ├── utils1.py              # Funciones de preprocesamiento y lematización
+│   └── app.py                 # Lógica principal de la aplicación Flask
+```
 
 ## ⚙️ Desarrollo de la Aplicación
 
