@@ -1,10 +1,10 @@
 from flask import Flask, request, render_template
 from pickle import load
 from utils1 import preprocess_text, lemmatize_text
-# https://spam-url-detected-flask.onrender.com
+
 app = Flask(__name__)
 
-# Cargamos el modelo y el vectorizado
+# Cargamos el modelo y el vectorizador
 model = load(open('12-opt-svm-model.pkl', 'rb'))
 vectorizer  = load(open('12-vectorizer.pkl', 'rb'))
 
