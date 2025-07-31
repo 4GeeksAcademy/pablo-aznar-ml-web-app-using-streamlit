@@ -1,112 +1,69 @@
-# Data Science Project Boilerplate
+# 🧠 Spam URL Classifier with Flask and SVM
 
-This boilerplate is designed to kickstart data science projects by providing a basic setup for database connections, data processing, and machine learning model development. It includes a structured folder organization for your datasets and a set of pre-defined Python packages necessary for most data science tasks.
+For the development of a web application using **Flask**, we have used a pre-trained supervised SVM (Support Vector Machine) model that predicts whether a URL is **spam** or **not spam**.
 
-## Structure
+---
 
-The project is organized as follows:
+## 🗂️ Repository Structure
 
-- **`src/app.py`** → Main Python script where your project will run.
-- **`src/explore.ipynb`** → Notebook for exploration and testing. Once exploration is complete, migrate the clean code to `app.py`.
-- **`src/utils.py`** → Auxiliary functions, such as database connection.
-- **`requirements.txt`** → List of required Python packages.
-- **`models/`** → Will contain your SQLAlchemy model classes.
-- **`data/`** → Stores datasets at different stages:
-  - **`data/raw/`** → Raw data.
-  - **`data/interim/`** → Temporarily transformed data.
-  - **`data/processed/`** → Data ready for analysis.
+```plaintext
+main/
+├── src/
+│   ├── static/
+│   │   └── alarm.wav          # Sound played when spam is detected
+│   ├── templates/
+│   │   └── index.html         # Custom web interface of the application
+│   ├── 12-opt-svm-model.pkl   # Trained SVM model
+│   ├── 12-vectorizer          # TF-IDF vectorizer needed to transform the text
+│   ├── requirements.txt       # Required libraries
+│   ├── utils1.py              # Preprocessing and lemmatization functions
+│   └── app.py                 # Main logic of the Flask application
+├── .env                       # Environment variables for local development
+├── .env.example               # Example environment file (template)
+├── .gitignore                 # Git ignored files configuration
+├── README.es.md               # Project documentation in Spanish
+└── README.md                  # Project documentation in English
 
-
-## ⚡ Initial Setup in Codespaces (Recommended)
-
-No manual setup is required, as **Codespaces is automatically configured** with the predefined files created by the academy for you. Just follow these steps:
-
-1. **Wait for the environment to configure automatically**.
-   - All necessary packages and the database will install themselves.
-   - The automatically created `username` and `db_name` are in the **`.env`** file at the root of the project.
-2. **Once Codespaces is ready, you can start working immediately**.
-
-
-## 💻 Local Setup (Only if you can't use Codespaces)
-
-**Prerequisites**
-
-Make sure you have Python 3.11+ installed on your machine. You will also need pip to install the Python packages.
-
-**Installation**
-
-Clone the project repository to your local machine.
-
-Navigate to the project directory and install the required Python packages:
-
-```bash
-pip install -r requirements.txt
 ```
 
-**Create a database (if necessary)**
 
-Create a new database within the Postgres engine by customizing and executing the following command:
+## ⚙️ Application Development
 
-```bash
-$ psql -U postgres -c "DO \$\$ BEGIN 
-    CREATE USER my_user WITH PASSWORD 'my_password'; 
-    CREATE DATABASE my_database OWNER my_user; 
-END \$\$;"
-```
-Connect to the Postgres engine to use your database, manipulate tables, and data:
+1. **Machine Learning Model**  
+   - Trained with SVM to classify URLs as spam or not spam.  
+   - Uses a TF-IDF vectorizer to transform URLs before prediction.
 
-```bash
-$ psql -U my_user -d my_database
-```
+2. **Text Preprocessing**  
+   - Implemented in `utils1.py`, where:  
+     - Text is normalized (lowercase, symbol removal).  
+     - Each word is lemmatized.  
+     - Stopwords and short words are removed.
 
-Once inside PSQL, you can create tables, run queries, insert, update, or delete data, and much more!
+3. **Web Interface (`index.html`)**  
+   - Based on **Bootstrap** with the `darkly` theme for a modern design.  
+   - Animated background using **tsParticles** simulating meteors.  
+     - If the prediction is spam:  
+       - Meteors move faster.  
+       - An alert sound plays every 2 seconds.  
+       - The message “!!!SPAM DETECTED!!!” blinks in red.  
+     - When pressing the “Clear” button:  
+       - The sound stops.  
+       - The particle speed returns to normal.  
+   - Form to enter a URL and buttons to classify or clear.
 
-**Environment Variables**
+4. **Main Logic (`app.py`)**  
+   - Loads the SVM model and vectorizer.  
+   - Preprocesses, lemmatizes, and vectorizes the input URL.  
+   - Performs the prediction.  
+   - Renders the result with the HTML interface.
 
-Create a .env file in the root directory of the project to store your environment variables, such as your database connection string:
+5. **Local Server**  
+   - **Gunicorn** is used to launch the local server and test the application before deployment.
 
-```makefile
-DATABASE_URL="postgresql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>"
+---
 
-#example
-DATABASE_URL="postgresql://my_user:my_password@localhost:5432/my_database"
-```
+## 🚀 Deployment on Render
 
-## Running the Application
+The application has been deployed on the **Render** platform. You can access the online version at the following link:
 
-To run the application, execute the app.py script from the root directory of the project:
-
-```bash
-python src/app.py
-```
-
-## Adding Models
-
-To add SQLAlchemy model classes, create new Python script files within the models/ directory. These classes should be defined according to your database schema.
-
-Example model definition (`models/example_model.py`):
-
-```py
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column
-
-Base = declarative_base()
-
-class ExampleModel(Base):
-    __tablename__ = 'example_table'
-    id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(unique=True)
-```
-
-## Working with Data
-
-You can place your raw datasets in the data/raw directory, intermediate datasets in data/interim, and processed datasets ready for analysis in data/processed.
-
-To process data, you can modify the app.py script to include your data processing steps, using pandas for data manipulation and analysis.
-
-## Contributors
-
-This template was built as part of the [Data Science and Machine Learning Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning) by 4Geeks Academy by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Learn more about [4Geeks Academy BootCamp programs](https://4geeksacademy.com/us/programs) here.
-
-Other templates and resources like this can be found on the school's GitHub page.
+🔗 [https://spam-url-detected-flask.onrender.com](https://spam-url-detected-flask.onrender.com)

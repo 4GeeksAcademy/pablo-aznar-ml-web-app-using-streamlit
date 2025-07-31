@@ -18,6 +18,12 @@ main/
 │   ├── requirements.txt       # Librerias necesarias 
 │   ├── utils1.py              # Funciones de preprocesamiento y lematización
 │   └── app.py                 # Lógica principal de la aplicación Flask
+├── .env                       # Variables del entorno para el desarrollo local
+├── .env.example               # Archivo del entorno de ejemplo (plantilla)
+├── .gitignore                 # Git ignored files configuration
+├── README.es.md               # Documentacion del proyecto en español
+└── README.md                  # Documentacion del proyecto en ingles
+
 ```
 
 ## ⚙️ Desarrollo de la Aplicación
