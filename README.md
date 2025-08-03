@@ -53,3 +53,5 @@ main/
 🚀 Deployment
 
 The application has been deployed on the Streamlit platform. You can access the online version via the following link
+
+🔗 [https://github.com/4GeeksAcademy/pablo-aznar-ml-web-app-using-streamlit](https://github.com/4GeeksAcademy/pablo-aznar-ml-web-app-using-streamlit)
