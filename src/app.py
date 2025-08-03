@@ -3,7 +3,7 @@ from pickle import load
 import base64
 from utils1 import preprocess_text, lemmatize_text
 
-# Cargar modelo y vectorizador
+# Cargamos modelo y vectorizador
 model = load(open('12-opt-svm-model.pkl', 'rb'))
 vectorizer = load(open('12-vectorizer.pkl', 'rb'))
 
@@ -118,7 +118,7 @@ if st.button("🔍 Clasificar"):
                     unsafe_allow_html=True
                 )
 
-# Mostrar resultado si existe
+# Mostramos resultado si existe
 if st.session_state.prediction_result:
     if "⚠️" in st.session_state.prediction_result:
         st.markdown(st.session_state.prediction_result, unsafe_allow_html=True)

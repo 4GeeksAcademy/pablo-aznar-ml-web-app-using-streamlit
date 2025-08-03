@@ -1,6 +1,6 @@
-# 🧠 Spam URL Classifier with Flask and SVM
+# 🧠 Spam URL Classifier with Streamlit and SVM
 
-For the development of a web application using **Flask**, we have used a pre-trained supervised SVM (Support Vector Machine) model that predicts whether a URL is **spam** or **not spam**.
+For the development of a web application using **Streamlit**, we used a previously trained and developed supervised **SVM (Support Vector Machine)** model that predicts whether a URL is **spam** or **not spam**.
 
 ---
 
@@ -10,60 +10,46 @@ For the development of a web application using **Flask**, we have used a pre-tra
 main/
 ├── src/
 │   ├── static/
-│   │   └── alarm.wav          # Sound played when spam is detected
-│   ├── templates/
-│   │   └── index.html         # Custom web interface of the application
+│   │   └── alarm.wav          # Alert sound played if spam is detected
 │   ├── 12-opt-svm-model.pkl   # Trained SVM model
-│   ├── 12-vectorizer          # TF-IDF vectorizer needed to transform the text
-│   ├── requirements.txt       # Required libraries
-│   ├── utils1.py              # Preprocessing and lemmatization functions
-│   └── app.py                 # Main logic of the Flask application
+│   ├── 12-vectorizer          # TF-IDF vectorizer used to transform the input text
+│   ├── utils1.py              # Text preprocessing and lemmatization functions
+│   ├── app.py                 # Main Streamlit application
+│   └── requirements.txt       # Required Python libraries
 ├── .env                       # Environment variables for local development
-├── .env.example               # Example environment file (template)
-├── .gitignore                 # Git ignored files configuration
+├── .env.example               # Example environment configuration file
+├── .gitignore                 # Git ignore file configuration
 ├── README.es.md               # Project documentation in Spanish
 └── README.md                  # Project documentation in English
 
 ```
 
+⚙️ Application Overview
 
-## ⚙️ Application Development
+1. **Machine Learning Model**
+   - Trained using an SVM algorithm to classify URLs as spam or not spam.
+   - Uses text preprocessing, lemmatization, and TF-IDF vectorization.
 
-1. **Machine Learning Model**  
-   - Trained with SVM to classify URLs as spam or not spam.  
-   - Uses a TF-IDF vectorizer to transform URLs before prediction.
+2. **User Text Preprocessing**
+   - Implemented in `utils1.py`:
+     - Text cleaning and normalization.
+     - Word lemmatization.
+     - Removal of symbols, short words, and stopwords.
 
-2. **Text Preprocessing**  
-   - Implemented in `utils1.py`, where:  
-     - Text is normalized (lowercase, symbol removal).  
-     - Each word is lemmatized.  
-     - Stopwords and short words are removed.
+3. **Web Interface with Streamlit**
+   - Interactive and modern UI with an animated dynamic gradient background.
+   - The **Classify** button determines whether the entered URL is safe or spam:
+     - If spam:
+       - A blinking warning message “⚠️ SPAM DETECTED!!!” is shown.
+       - An alert sound is played.
+     - If not spam:
+       - A clickable link is provided to open the URL in a new tab.
+   - Custom buttons are always visible: `Classify`, `Submit Rating`, and `Clear`.
+   - The **Clear** button removes both the entered URL and the prediction message.
 
-3. **Web Interface (`index.html`)**  
-   - Based on **Bootstrap** with the `darkly` theme for a modern design.  
-   - Animated background using **tsParticles** simulating meteors.  
-     - If the prediction is spam:  
-       - Meteors move faster.  
-       - An alert sound plays every 2 seconds.  
-       - The message “!!!SPAM DETECTED!!!” blinks in red.  
-     - When pressing the “Clear” button:  
-       - The sound stops.  
-       - The particle speed returns to normal.  
-   - Form to enter a URL and buttons to classify or clear.
+4. **No Web Server Needed**
+   - Streamlit runs the app directly without the need for a web server (unlike Flask or Gunicorn).
 
-4. **Main Logic (`app.py`)**  
-   - Loads the SVM model and vectorizer.  
-   - Preprocesses, lemmatizes, and vectorizes the input URL.  
-   - Performs the prediction.  
-   - Renders the result with the HTML interface.
+🚀 Deployment
 
-5. **Local Server**  
-   - **Gunicorn** is used to launch the local server and test the application before deployment.
-
----
-
-## 🚀 Deployment on Render
-
-The application has been deployed on the **Render** platform. You can access the online version at the following link:
-
-🔗 [https://spam-url-detected-flask.onrender.com](https://spam-url-detected-flask.onrender.com)
+The application has been deployed on the Streamlit platform. You can access the online version via the following link

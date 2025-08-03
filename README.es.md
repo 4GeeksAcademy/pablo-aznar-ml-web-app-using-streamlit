@@ -28,7 +28,7 @@ main/
 
 1. **Modelo de Machine Learning**
    - Entrenado con un algoritmo SVM para clasificar URLs como spam o no spam.
-   - Usa preprocesamiento de texto, lematización y vectorización TF-IDF.
+   - Utikiza preprocesamiento de texto, lematización y vectorización TF-IDF.
 
 2. **Preprocesamiento del texto del usuario**
    - Implementado en `utils1.py`:
@@ -43,7 +43,7 @@ main/
        - Se muestra el mensaje “⚠️ ¡¡¡SPAM DETECTADO!!!” con animación de parpadeo.
        - Se reproduce un sonido de alerta.
      - Si no es spam:
-       - Se ofrece un enlace clicable para abrir la URL en una nueva pestaña (con estilo visible y sin subrayado).
+       - Se ofrece un enlace clicable para abrir la URL en una nueva pestaña.
    - Botones personalizados siempre visibles: `Clasificar`, `Enviar valoración` y `Limpiar`.
    - El botón **Limpiar** borra tanto la URL introducida como el mensaje de predicción.
 
