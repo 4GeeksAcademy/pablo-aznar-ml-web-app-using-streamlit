@@ -4,8 +4,8 @@ import base64
 from utils1 import preprocess_text, lemmatize_text
 
 # Cargamos modelo y vectorizador
-model = load(open('12-opt-svm-model.pkl', 'rb'))
-vectorizer = load(open('12-vectorizer.pkl', 'rb'))
+model = load(open('src/12-opt-svm-model.pkl', 'rb'))
+vectorizer = load(open('src/12-vectorizer.pkl', 'rb'))
 
 # CSS personalizado
 def load_custom_css():
