@@ -67,7 +67,7 @@ def load_custom_css():
 
 # Función para reproducir sonido
 def play_sound():
-    with open("static/alarm.wav", "rb") as f:
+    with open("src/static/alarm.wav", "rb") as f:
         data = f.read()
         b64 = base64.b64encode(data).decode()
         st.markdown(f"""
