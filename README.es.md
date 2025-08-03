@@ -56,4 +56,4 @@ main/
 
 La aplicación ha sido desplegada en la plataforma **Streamlit**. Puedes acceder a la versión en línea desde el siguiente enlace:
 
-🔗 [https://github.com/4GeeksAcademy/pablo-aznar-ml-web-app-using-streamlit](https://github.com/4GeeksAcademy/pablo-aznar-ml-web-app-using-streamlit)
+🔗 [https://pablo-aznar-spam-url-classifier.streamlit.app/](https://pablo-aznar-spam-url-classifier.streamlit.app/)
