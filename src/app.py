@@ -94,7 +94,7 @@ if "prediction_result" not in st.session_state:
 
 # Entrada del usuario
 st.markdown('<label><strong style="color:white;">Introduce la URL a analizar:</strong></label>', unsafe_allow_html=True)
-url_input = st.text_area("", key="url_input", placeholder="https://example.com/oferta-increible...")
+url_input = st.text_area("Introduce una URL", key="url_input", placeholder="https://example.com/oferta-increible...")
 
 # Clasificar
 if st.button("🔍 Clasificar"):
@@ -128,7 +128,7 @@ if st.session_state.prediction_result:
 # Encuesta
 st.markdown("---")
 st.markdown('<strong style="color:white;">🗳️ ¿Cómo valorarías tu experiencia usando esta aplicación?</strong>', unsafe_allow_html=True)
-rating = st.slider("", 1, 5, 3)
+rating = st.slider("Califica esta app", 1, 5, 3)
 
 if st.button("📩 Enviar valoración"):
     st.success(f"✅ ¡Gracias por tu valoración de {rating} estrella(s)!")

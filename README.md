@@ -15,12 +15,12 @@ main/
 │   ├── 12-vectorizer          # TF-IDF vectorizer used to transform the input text
 │   ├── utils1.py              # Text preprocessing and lemmatization functions
 │   ├── app.py                 # Main Streamlit application
-│   └── requirements.txt       # Required Python libraries
 ├── .env                       # Environment variables for local development
 ├── .env.example               # Example environment configuration file
 ├── .gitignore                 # Git ignore file configuration
 ├── README.es.md               # Project documentation in Spanish
-└── README.md                  # Project documentation in English
+├── README.md                  # Project documentation in English
+└── requirements.txt       # Required Python libraries
 
 ```
 
