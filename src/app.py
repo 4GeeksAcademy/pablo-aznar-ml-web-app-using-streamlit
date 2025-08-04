@@ -94,7 +94,7 @@ if "prediction_result" not in st.session_state:
 
 # Entrada del usuario
 st.markdown('<label><strong style="color:white;">Introduce la URL a analizar:</strong></label>', unsafe_allow_html=True)
-url_input = st.text_area("Introduce una URL", key="url_input", placeholder="https://example.com/oferta-increible...")
+url_input = st.text_area(label="", key="url_input", placeholder="https://example.com/oferta-increible...")
 
 # Clasificar
 if st.button("🔍 Clasificar"):
