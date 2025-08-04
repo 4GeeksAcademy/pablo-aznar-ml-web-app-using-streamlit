@@ -48,7 +48,7 @@ main/
    - El botón **Limpiar** borra tanto la URL introducida como el mensaje de predicción.
 
 4. **Sin necesidad de servidor**
-   - Streamlit ejecuta la app directamente sin necesidad de configurar un servidor web (como Flask o Gunicorn).
+   - Streamlit ejecuta la app directamente en local sin necesidad de configurar un servidor web (como Flask o Gunicorn). Terminal: streamlit run src/app.py
 
 ---
 

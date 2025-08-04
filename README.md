@@ -48,7 +48,7 @@ main/
    - The **Clear** button removes both the entered URL and the prediction message.
 
 4. **No Web Server Needed**
-   - Streamlit runs the app directly without the need for a web server (unlike Flask or Gunicorn).
+   - Streamlit runs the app directly without the need for a web server (unlike Flask or Gunicorn). Terminal: streamlit run src/app.py
 
 🚀 Deployment
 
