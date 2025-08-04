@@ -28,7 +28,7 @@ main/
 
 1. **Modelo de Machine Learning**
    - Entrenado con un algoritmo SVM para clasificar URLs como spam o no spam.
-   - Utikiza preprocesamiento de texto, lematización y vectorización TF-IDF.
+   - Utiliza preprocesamiento de texto, lematización y vectorización TF-IDF.
 
 2. **Preprocesamiento del texto del usuario**
    - Implementado en `utils1.py`:
